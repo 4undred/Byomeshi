@@ -131,208 +131,204 @@
     </h1>
   </div>
 
-  <div class="main-contents">
-    <div class="inner">
-      <div class="contents-group">
-        <p class="common-head">こんなお店はどう？</p>
-        <div class="criteria">
-          <div class="criteria-item genre">
-            <p class="criteria-head">なに食べたい？</p>
-            <p class="criteria-main">居酒屋・和食</p>
-          </div>
-          <div class="criteria-item budget">
-            <p class="criteria-head">いくら使える？</p>
-            <p class="criteria-main">1,000<span class="small">円</span></p>
-          </div>
-          <div class="criteria-item distance">
-            <p class="criteria-head">どこまで行ける？</p>
-            <p class="criteria-main">500<span class="small">m</span></p>
-          </div>
-        </div>
-      </div>
-      <div class="contents-group">
-        <p class="common-head">なに食べたい？</p>
-        <ul class="genre-list">
-          <li class="genre-item active">
-            <button>
-              すべて
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              和食全般
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              洋食全般
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              カフェ
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              Bar
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              居酒屋
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              中華
-            </button>
-          </li>
-          <li class="genre-item row2">
-            <button>
-              ファストフード
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              ラーメン
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              寿司
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              ステーキ
-            </button>
-          </li>
-          <li class="genre-item row2">
-            <button>
-              ハンバーガー
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              トンカツ
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              うどん
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              そば
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              牛丼
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              カレー
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              アジア
-            </button>
-          </li>
-          <li class="genre-item">
-            <button>
-              焼き肉
-            </button>
-          </li>
-        </ul>
-      </div>
-
-      <div class="contents-group">
-        <p class="common-head">いくら使える？</p>
-
-        <div class="swiper-container">
-          <div class="swiper swiper01">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <p class="swiper-main">1,000<span class="small">円</span></p>
-              </div>
-              <div class="swiper-slide">
-                <p class="swiper-main">2,000<span class="small">円</span></p>
-              </div>
-              <div class="swiper-slide">
-                <p class="swiper-main">3,000<span class="small">円</span></p>
-              </div>
-              <div class="swiper-slide">
-                <p class="swiper-main">4,000<span class="small">円</span></p>
-              </div>
+  <form id="searchForm" action="/results.html">
+    <div class="main-contents">
+      <div class="inner">
+        <div class="contents-group">
+          <p class="common-head">こんなお店はどう？</p>
+          <div class="criteria">
+            <div class="criteria-item genre">
+              <p class="criteria-head">なに食べたい？</p>
+              <p class="criteria-main" id="selected-box-genre">すべて</p>
+            </div>
+            <div class="criteria-item budget">
+              <p class="criteria-head">いくら使える？</p>
+              <p class="criteria-main"><span id="selected-box-budget"></span><span class="small">円</span></p>
+            </div>
+            <div class="criteria-item distance">
+              <p class="criteria-head">どこまで行ける？</p>
+              <p class="criteria-main"><span id="selected-box-distance"></span><span class="small">m</span></p>
             </div>
           </div>
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev swiper-button-prev01">
-            <svg>
-              <use href="#btn-swiper">
-            </svg>
-          </div>
-          <div class="swiper-button-next swiper-button-next01">
-            <svg>
-              <use href="#btn-swiper">
-            </svg>
-          </div>
         </div>
-      </div>
-
-      <div class="contents-group">
-        <p class="common-head">どこまで行ける？</p>
-
-        <div class="swiper-container">
-          <div class="swiper swiper02">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <p class="swiper-main">1,000<span class="small">m</span></p>
-              </div>
-              <div class="swiper-slide">
-                <p class="swiper-main">2,000<span class="small">m</span></p>
-              </div>
-              <div class="swiper-slide">
-                <p class="swiper-main">3,000<span class="small">m</span></p>
-              </div>
-              <div class="swiper-slide">
-                <p class="swiper-main">4,000<span class="small">m</span></p>
+        <div class="contents-group genre">
+          <label class="common-head">なに食べたい？</label>
+          <ul class="genre-list">
+            <li class="genre-item active">
+              <input id="genre00" class="genre-input" type="radio" name="food" value="0" checked>
+                <label for="genre00" class="genre-label">すべて</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre01" class="genre-input" type="radio" name="food" value="1">
+                <label for="genre01" class="genre-label">和食全般</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre02" class="genre-input" type="radio" name="food" value="2">
+                <label for="genre02" class="genre-label">洋食全般</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre03" class="genre-input" type="radio" name="food" value="3">
+                <label for="genre03" class="genre-label">カフェ</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre04" class="genre-input" type="radio" name="food" value="4">
+                <label for="genre04" class="genre-label">Bar</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre05" class="genre-input" type="radio" name="food" value="5">
+                <label for="genre05" class="genre-label">居酒屋</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre06" class="genre-input" type="radio" name="food" value="6">
+                <label for="genre06" class="genre-label">中華</label>
+              </input>
+            </li>
+            <li class="genre-item row2">
+              <input id="genre07" class="genre-input" type="radio" name="food" value="7">
+                <label for="genre07" class="genre-label">ファストフード</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre08" class="genre-input" type="radio" name="food" value="8">
+                <label for="genre08" class="genre-label">ラーメン</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre09" class="genre-input" type="radio" name="food" value="9">
+                <label for="genre09" class="genre-label">寿司</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre10" class="genre-input" type="radio" name="food" value="10">
+                <label for="genre10" class="genre-label">ステーキ</label>
+              </input>
+            </li>
+            <li class="genre-item row2">
+              <input id="genre11" class="genre-input" type="radio" name="food" value="11">
+                <label for="genre11" class="genre-label">ハンバーガー</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre12" class="genre-input" type="radio" name="food" value="12">
+                <label for="genre12" class="genre-label">トンカツ</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre13" class="genre-input" type="radio" name="food" value="13">
+                <label for="genre13" class="genre-label">うどん</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre14" class="genre-input" type="radio" name="food" value="14">
+                <label for="genre14" class="genre-label">そば</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre15" class="genre-input" type="radio" name="food" value="15">
+                <label for="genre15" class="genre-label">牛丼</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre16" class="genre-input" type="radio" name="food" value="16">
+                <label for="genre16" class="genre-label">カレー</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre17" class="genre-input" type="radio" name="food" value="17">
+                <label for="genre17" class="genre-label">アジア</label>
+              </input>
+            </li>
+            <li class="genre-item">
+              <input id="genre18" class="genre-input" type="radio" name="food" value="18">
+                <label for="genre18" class="genre-label">焼き肉</label>
+              </input>
+            </li>
+          </ul>
+        </div>
+        <div class="contents-group budget">
+          <label class="common-head">いくら使える？</label>
+          <div class="swiper-container">
+            <div class="swiper swiper01">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <p class="swiper-main"><span class="budget-input">1,000</span><span class="small">円</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <p class="swiper-main"><span class="budget-input">2,000</span><span class="small">円</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <p class="swiper-main"><span class="budget-input">3,000</span><span class="small">円</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <p class="swiper-main"><span class="budget-input">4,000</span><span class="small">円</span></p>
+                </div>
               </div>
             </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev swiper-button-prev01">
+              <svg>
+                <use href="#btn-swiper">
+              </svg>
+            </div>
+            <div class="swiper-button-next swiper-button-next01">
+              <svg>
+                <use href="#btn-swiper">
+              </svg>
+            </div>
           </div>
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev swiper-button-prev02">
-            <svg>
-              <use href="#btn-swiper">
-            </svg>
-          </div>
-          <div class="swiper-button-next swiper-button-next02">
-            <svg>
-              <use href="#btn-swiper">
-            </svg>
+        </div>
+        <div class="contents-group distance">
+          <label class="common-head">どこまで行ける？</label>
+          <div class="swiper-container">
+            <div class="swiper swiper02">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <p class="swiper-main"><span class="distance-input">1,000</span><span class="small">m</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <p class="swiper-main"><span class="distance-input">2,000</span><span class="small">m</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <p class="swiper-main"><span class="distance-input">3,000</span><span class="small">m</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <p class="swiper-main"><span class="distance-input">4,000</span><span class="small">m</span></p>
+                </div>
+              </div>
+            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev swiper-button-prev02">
+              <svg>
+                <use href="#btn-swiper">
+              </svg>
+            </div>
+            <div class="swiper-button-next swiper-button-next02">
+              <svg>
+                <use href="#btn-swiper">
+              </svg>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
-  </div>
-
-  <div class="btn-wrapper">
-    <div class="inner">
-      <button class="submit" type="submit">
-        <span>
-          <svg>
-            <use href="#ok-icon">
-          </svg>
-        </span>
-        OK!</button>
+    <div class="btn-wrapper">
+      <div class="inner">
+        <button class="submit" type="submit">
+          <span>
+            <svg>
+              <use href="#ok-icon">
+            </svg>
+          </span>
+          OK!</button>
+      </div>
     </div>
-  </div>
+  </form>
 
 
 
@@ -373,6 +369,7 @@
     <button type="submit">検索</button>
   </form>
 
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="/js/main.js"></script>
 </body>

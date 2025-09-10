@@ -43,55 +43,55 @@ useBtn.addEventListener('click', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const genreSelect = document.getElementById('genre');
-    if (!genreSelect) return;
+  const genreSelect = document.getElementById('genre');
+  if (!genreSelect) return;
 
-    fetch('/api/genres')
-        .then(res => res.json())
-        .then(data => {
-        data.genres.forEach(genre => {
-            const option = document.createElement('option');
-            option.value = genre.code;
-            option.textContent = genre.name;
-            genreSelect.appendChild(option);
-        });
+  fetch('/api/genres')
+    .then(res => res.json())
+    .then(data => {
+      data.genres.forEach(genre => {
+        const option = document.createElement('option');
+        option.value = genre.code;
+        option.textContent = genre.name;
+        genreSelect.appendChild(option);
+      });
     })
     .catch(err => {
       console.error('ジャンル取得失敗:', err);
     });
 
-    const searchForm = document.getElementById('searchForm');
-    if (searchForm) {
-        searchForm.addEventListener('submit', (e) => {
-            let countInput = document.getElementById('count');
-            if (!countInput) {
-                countInput = document.createElement('input');
-                countInput.type = 'hidden';
-                countInput.name = 'count';
-                countInput.id = 'count';
-                searchForm.appendChild(countInput);
-            }
-        countInput.value = 50;
-        });
-    }
+  const searchForm = document.getElementById('searchForm');
+  if (searchForm) {
+    searchForm.addEventListener('submit', (e) => {
+      let countInput = document.getElementById('count');
+      if (!countInput) {
+        countInput = document.createElement('input');
+        countInput.type = 'hidden';
+        countInput.name = 'count';
+        countInput.id = 'count';
+        searchForm.appendChild(countInput);
+      }
+      countInput.value = 50;
+    });
+  }
 
-    const budgetSelect = document.getElementById('budget');
-        if (budgetSelect) {
-            fetch('/api/budgets')
-            .then(res => res.json())
-            .then(data => {
-            budgetSelect.innerHTML = '<option value="">選択しない</option>';
-            data.budgets.forEach(budget => {
-                const option = document.createElement('option');
-                option.value = budget.code;
-                option.textContent = budget.name;
-                budgetSelect.appendChild(option);
+  const budgetSelect = document.getElementById('budget');
+  if (budgetSelect) {
+    fetch('/api/budgets')
+      .then(res => res.json())
+      .then(data => {
+        budgetSelect.innerHTML = '<option value="">選択しない</option>';
+        data.budgets.forEach(budget => {
+          const option = document.createElement('option');
+          option.value = budget.code;
+          option.textContent = budget.name;
+          budgetSelect.appendChild(option);
         });
-        })
-        .catch(err => {
+      })
+      .catch(err => {
         console.error('予算取得失敗:', err);
-        });
-    }
+      });
+  }
 });
 
 
@@ -115,3 +115,65 @@ const mySwiper02 = new Swiper('.swiper02', {
     prevEl: '.swiper-button-prev02',
   },
 });
+
+
+function updateSelected() {
+  // 選択中のラジオボタンのラベルを取得
+  let selectedTextGenre = $(".genre-input:checked + .genre-label").text();
+  $("#selected-box-genre").text(selectedTextGenre);
+}
+// ページ読み込み時に初期表示
+updateSelected();
+// ラジオボタンが切り替わったら更新
+$(".genre-input").on("change", function () {
+  updateSelected();
+});
+
+// function updateSelectedBudget() {
+//   let selectedTextBudget = $(".budget .swiper-slide-active .budget-input").text();
+//   $("#selected-box-budget").text(selectedTextBudget);
+// }
+// updateSelectedBudget();
+// $(".budget .swiper-slide").on("change", function () {
+//   updateSelectedBudget();
+// });
+
+function updateBudget() {
+  let selectedText = document.querySelector(".swiper01 .swiper-slide-active .budget-input").textContent;
+  document.querySelector("#selected-box-budget").textContent = selectedText;
+}
+
+function updateDistance() {
+  let selectedText = document.querySelector(".swiper02 .swiper-slide-active .distance-input").textContent;
+  document.querySelector("#selected-box-distance").textContent = selectedText;
+}
+
+// 初期表示
+updateBudget();
+updateDistance();
+
+mySwiper01.on('slideChangeTransitionEnd', function () {
+  updateBudget();
+});
+
+mySwiper02.on('slideChangeTransitionEnd', function () {
+  updateDistance();
+});
+
+// // 対象の要素
+// var targetBudget = document.querySelector('.budget .swiper-slide');
+// var targetDistance = document.querySelector('.distance .swiper-slide');
+
+// // MutationObserverを作成
+// var observer = new MutationObserver(function(mutationsList) {
+//     mutationsList.forEach(function(mutation) {
+//       updateBudget();
+//       updateDistance();
+//     });
+// });
+
+// // 監視オプション
+// observer.observe(targetBudget, { attributes: true });
+// observer.observe(targetDistance, { attributes: true });
+
+
