@@ -44,13 +44,16 @@
       const lng = shop.lng;
 
       div.innerHTML = `
-        <h2>${name}</h2>
-        <p>${address}</p>
-        <p>ジャンル: ${shop.genre?.name || '不明'}</p>
-        <p>予算: ${shop.budget?.name || '不明'}</p>
-        <p>営業時間: ${shop.open || '不明'}</p>
-        <p>おすすめ: ${shop.catch || ''}</p>
-        <p><a href="${url}" target="_blank">店舗ページ（Hot Pepper）</a></p>
+      <div class="inner">
+        <h2 class="head">ここに行こ！</h2>
+        <p class="name">${name}</１>
+        <p class="address">${address}</p>
+        <!-- <p>ジャンル: ${shop.genre?.name || '不明'}</p> -->
+        <!-- <p>予算: ${shop.budget?.name || '不明'}</p> -->
+        <p class="open">営業時間: ${shop.open || '不明'}</p> 
+        <!-- <p>おすすめ: ${shop.catch || ''}</p> -->
+        <!-- <p><a href="${url}" target="_blank">店舗ページ（Hot Pepper）</a></p> -->
+      </div>
       `;
 
       if (lat && lng) {

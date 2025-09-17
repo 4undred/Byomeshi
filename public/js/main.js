@@ -80,13 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('/api/budgets')
       .then(res => res.json())
       .then(data => {
-        budgetSelect.innerHTML = '<option value="">選択しない</option>';
-        data.budgets.forEach(budget => {
-          const option = document.createElement('option');
-          option.value = budget.code;
-          option.textContent = budget.name;
-          budgetSelect.appendChild(option);
-        });
+        // budgetSelect.innerHTML = '<option value="">選択しない</option>';
+        // data.budgets.forEach(budget => {
+        //   const option = document.createElement('option');
+        //   option.value = budget.code;
+        //   option.textContent = budget.name;
+        //   budgetSelect.appendChild(option);
+        // });
       })
       .catch(err => {
         console.error('予算取得失敗:', err);
@@ -120,7 +120,7 @@ const mySwiper02 = new Swiper('.swiper02', {
 function updateSelected() {
   // 選択中のラジオボタンのラベルを取得
   let selectedTextGenre = $(".genre-input:checked + .genre-label").text();
-  $("#selected-box-genre").text(selectedTextGenre);
+  $("#keyword").text(selectedTextGenre);
 }
 // ページ読み込み時に初期表示
 updateSelected();
@@ -140,12 +140,12 @@ $(".genre-input").on("change", function () {
 
 function updateBudget() {
   let selectedText = document.querySelector(".swiper01 .swiper-slide-active .budget-input").textContent;
-  document.querySelector("#selected-box-budget").textContent = selectedText;
+  document.querySelector("#budget").textContent = selectedText;
 }
 
 function updateDistance() {
   let selectedText = document.querySelector(".swiper02 .swiper-slide-active .distance-input").textContent;
-  document.querySelector("#selected-box-distance").textContent = selectedText;
+  document.querySelector("#range").textContent = selectedText;
 }
 
 // 初期表示
