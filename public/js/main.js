@@ -129,15 +129,6 @@ $(".genre-input").on("change", function () {
   updateSelected();
 });
 
-// function updateSelectedBudget() {
-//   let selectedTextBudget = $(".budget .swiper-slide-active .budget-input").text();
-//   $("#selected-box-budget").text(selectedTextBudget);
-// }
-// updateSelectedBudget();
-// $(".budget .swiper-slide").on("change", function () {
-//   updateSelectedBudget();
-// });
-
 function updateBudget() {
   let selectedText = document.querySelector(".swiper01 .swiper-slide-active .budget-input").textContent;
   document.querySelector("#budget").textContent = selectedText;
@@ -159,21 +150,4 @@ mySwiper01.on('slideChangeTransitionEnd', function () {
 mySwiper02.on('slideChangeTransitionEnd', function () {
   updateDistance();
 });
-
-// // 対象の要素
-// var targetBudget = document.querySelector('.budget .swiper-slide');
-// var targetDistance = document.querySelector('.distance .swiper-slide');
-
-// // MutationObserverを作成
-// var observer = new MutationObserver(function(mutationsList) {
-//     mutationsList.forEach(function(mutation) {
-//       updateBudget();
-//       updateDistance();
-//     });
-// });
-
-// // 監視オプション
-// observer.observe(targetBudget, { attributes: true });
-// observer.observe(targetDistance, { attributes: true });
-
 
