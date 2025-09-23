@@ -2,7 +2,7 @@
 (async () => {
     const params = new URLSearchParams(location.search);
     const lat = params.get('lat');
-     const lng = params.get('lng');
+    const lng = params.get('lng');
     const range = params.get('range') || '3';
     const genre = params.get('genre') || '';
     const keyword = params.get('keyword') || '';
