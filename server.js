@@ -46,6 +46,7 @@ app.get('/api/search', async (req, res) => {
     if (budget) params.set('budget', budget);
 
     const url = `${baseUrl}?${params.toString()}`;
+    console.log(url);
     const response = await fetchFn(url);
     if (!response.ok) throw new Error(`Hot Pepper API Error: ${response.status}`);
 

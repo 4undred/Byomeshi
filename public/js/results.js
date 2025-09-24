@@ -3,9 +3,8 @@
     const params = new URLSearchParams(location.search);
     const lat = params.get('lat');
     const lng = params.get('lng');
-    const range = params.get('range') || '3';
+    const range = params.get('range') || '';
     const genre = params.get('genre') || '';
-    const keyword = params.get('keyword') || '';
     const budget = params.get('budget') || '';
     const count = params.get('count') || '30';
 
@@ -16,7 +15,7 @@
   infoEl.textContent = '検索中...';
 
   try {
-    const query = new URLSearchParams({ range, genre, count, keyword, budget });
+    const query = new URLSearchParams({ range, genre, count, budget });
     if (lat && lng) { query.set('lat', lat); query.set('lng', lng); }
 
     const res = await fetch(`/api/search?${query.toString()}`);

@@ -42,7 +42,11 @@ useBtn.addEventListener('click', () => {
   }, { enableHighAccuracy: false, timeout: 10000 });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+document.getElementById('searchForm').addEventListener('submit', function() {
+  updateSelected();
+});
+
+/*document.addEventListener('DOMContentLoaded', () => {
   const genreSelect = document.getElementById('genre');
   if (!genreSelect) return;
 
@@ -92,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('予算取得失敗:', err);
       });
   }
-});
+});*/
 
 
 // swiper
@@ -117,37 +121,45 @@ const mySwiper02 = new Swiper('.swiper02', {
 });
 
 
-function updateSelected() {
-  // 選択中のラジオボタンのラベルを取得
+function updateGenre() {
+  // 表示用
   let selectedTextGenre = $(".genre-input:checked + .genre-label").text();
-  $("#keyword").text(selectedTextGenre);
+  $("#genre").text(selectedTextGenre);
 }
-// ページ読み込み時に初期表示
-updateSelected();
-// ラジオボタンが切り替わったら更新
-$(".genre-input").on("change", function () {
-  updateSelected();
-});
 
 function updateBudget() {
+  // スライダーのインデックスからHotPepper予算コード
+  const budgetCodes = ["B001", "B002", "B009", "B010"];
+  const activeIndex = mySwiper01.activeIndex || 0;
+  $("#budget-hidden").val(budgetCodes[activeIndex]);
+  // 表示用
   let selectedText = document.querySelector(".swiper01 .swiper-slide-active .budget-input").textContent;
-  document.querySelector("#budget").textContent = selectedText;
+  $("#budget").text(selectedText);
 }
 
-function updateDistance() {
+function updateRange() {
+  // スライダーのインデックスからHotPepper range値
+  const rangeValues = [1, 2, 3, 4];
+  const activeIndex = mySwiper02.activeIndex || 0;
+  $("#range-hidden").val(rangeValues[activeIndex]);
+  // 表示用
   let selectedText = document.querySelector(".swiper02 .swiper-slide-active .distance-input").textContent;
-  document.querySelector("#range").textContent = selectedText;
+  $("#range").text(selectedText);
 }
 
 // 初期表示
+updateGenre();
 updateBudget();
-updateDistance();
+updateRange();
 
-mySwiper01.on('slideChangeTransitionEnd', function () {
+// イベント登録
+$(".genre-input").on("change", updateGenre);
+mySwiper01.on('slideChangeTransitionEnd', updateBudget);
+mySwiper02.on('slideChangeTransitionEnd', updateRange);
+
+// フォーム送信時にもhidden値を再セット
+document.getElementById('searchForm').addEventListener('submit', function() {
+  updateGenre();
   updateBudget();
+  updateRange();
 });
-
-mySwiper02.on('slideChangeTransitionEnd', function () {
-  updateDistance();
-});
-
