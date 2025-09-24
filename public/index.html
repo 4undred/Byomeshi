@@ -132,6 +132,9 @@
   </div>
 
   <form id="searchForm" action="/results.html">
+    <div id="locStatus"></div>
+      <input type="hidden" name="lat" id="lat">
+      <input type="hidden" name="lng" id="lng">
     <div class="main-contents">
       <div class="inner">
         <div class="contents-group">
@@ -139,15 +142,17 @@
           <div class="criteria">
             <div class="criteria-item genre">
               <p class="criteria-head">なに食べたい？</p>
-              <p class="criteria-main" id="keyword" name="keyword">すべて</p>
+              <p class="criteria-main" id="genre">すべて</p>
             </div>
             <div class="criteria-item budget">
               <p class="criteria-head">いくら使える？</p>
-              <p class="criteria-main"><span id="budget"></span><span class="small">円</span></p>
+              <p class="criteria-main"><span id="budget" name="budget"></span><span class="small">円</span></p>
+              <input type="hidden" name="budget" id="budget-hidden">
             </div>
             <div class="criteria-item distance">
               <p class="criteria-head">どこまで行ける？</p>
-              <p class="criteria-main"><span id="range"></span><span class="small">m</span></p>
+              <p class="criteria-main"><span id="range" name="range"></span><span class="small">m</span></p>
+              <input type="hidden" name="range" id="range-hidden">
             </div>
           </div>
         </div>
@@ -155,97 +160,52 @@
           <label class="common-head">なに食べたい？</label>
           <ul class="genre-list">
             <li class="genre-item active">
-              <input id="genre00" class="genre-input" type="radio" name="food" value="0" checked>
+              <input id="genre00" class="genre-input" type="radio" name="genre" value="" checked>
                 <label for="genre00" class="genre-label">すべて</label>
               </input>
             </li>
             <li class="genre-item">
-              <input id="genre01" class="genre-input" type="radio" name="food" value="1">
+              <input id="genre01" class="genre-input" type="radio" name="genre" value="G004">
                 <label for="genre01" class="genre-label">和食全般</label>
               </input>
             </li>
             <li class="genre-item">
-              <input id="genre02" class="genre-input" type="radio" name="food" value="2">
+              <input id="genre02" class="genre-input" type="radio" name="genre" value="G005">
                 <label for="genre02" class="genre-label">洋食全般</label>
               </input>
             </li>
             <li class="genre-item">
-              <input id="genre03" class="genre-input" type="radio" name="food" value="3">
+              <input id="genre03" class="genre-input" type="radio" name="genre" value="G016">
                 <label for="genre03" class="genre-label">カフェ</label>
               </input>
             </li>
             <li class="genre-item">
-              <input id="genre04" class="genre-input" type="radio" name="food" value="4">
+              <input id="genre04" class="genre-input" type="radio" name="genre" value="G013">
                 <label for="genre04" class="genre-label">Bar</label>
               </input>
             </li>
             <li class="genre-item">
-              <input id="genre05" class="genre-input" type="radio" name="food" value="5">
+              <input id="genre05" class="genre-input" type="radio" name="genre" value="G001">
                 <label for="genre05" class="genre-label">居酒屋</label>
               </input>
             </li>
             <li class="genre-item">
-              <input id="genre06" class="genre-input" type="radio" name="food" value="6">
+              <input id="genre06" class="genre-input" type="radio" name="genre" value="G007">
                 <label for="genre06" class="genre-label">中華</label>
               </input>
             </li>
-            <li class="genre-item row2">
-              <input id="genre07" class="genre-input" type="radio" name="food" value="7">
-                <label for="genre07" class="genre-label">ファストフード</label>
-              </input>
-            </li>
             <li class="genre-item">
-              <input id="genre08" class="genre-input" type="radio" name="food" value="8">
+              <input id="genre08" class="genre-input" type="radio" name="genre" value="G014">
                 <label for="genre08" class="genre-label">ラーメン</label>
               </input>
             </li>
             <li class="genre-item">
-              <input id="genre09" class="genre-input" type="radio" name="food" value="9">
-                <label for="genre09" class="genre-label">寿司</label>
-              </input>
-            </li>
-            <li class="genre-item">
-              <input id="genre10" class="genre-input" type="radio" name="food" value="10">
-                <label for="genre10" class="genre-label">ステーキ</label>
-              </input>
-            </li>
-            <li class="genre-item row2">
-              <input id="genre11" class="genre-input" type="radio" name="food" value="11">
-                <label for="genre11" class="genre-label">ハンバーガー</label>
-              </input>
-            </li>
-            <li class="genre-item">
-              <input id="genre12" class="genre-input" type="radio" name="food" value="12">
-                <label for="genre12" class="genre-label">トンカツ</label>
-              </input>
-            </li>
-            <li class="genre-item">
-              <input id="genre13" class="genre-input" type="radio" name="food" value="13">
-                <label for="genre13" class="genre-label">うどん</label>
-              </input>
-            </li>
-            <li class="genre-item">
-              <input id="genre14" class="genre-input" type="radio" name="food" value="14">
-                <label for="genre14" class="genre-label">そば</label>
-              </input>
-            </li>
-            <li class="genre-item">
-              <input id="genre15" class="genre-input" type="radio" name="food" value="15">
-                <label for="genre15" class="genre-label">牛丼</label>
-              </input>
-            </li>
-            <li class="genre-item">
-              <input id="genre16" class="genre-input" type="radio" name="food" value="16">
-                <label for="genre16" class="genre-label">カレー</label>
-              </input>
-            </li>
-            <li class="genre-item">
-              <input id="genre17" class="genre-input" type="radio" name="food" value="17">
+              <input id="genre17" class="genre-input" type="radio" name="genre"  value="G010">
                 <label for="genre17" class="genre-label">アジア</label>
               </input>
             </li>
             <li class="genre-item">
-              <input id="genre18" class="genre-input" type="radio" name="food" value="18">
+              <input id="genre18" class="genre-input" type="radio" name="genre"  value="G008">
                 <label for="genre18" class="genre-label">焼き肉</label>
               </input>
             </li>
@@ -289,16 +249,16 @@
             <div class="swiper swiper02">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
+                  <p class="swiper-main"><span class="distance-input">300</span><span class="small">m</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <p class="swiper-main"><span class="distance-input">500</span><span class="small">m</span></p>
+                </div>
+                <div class="swiper-slide">
                   <p class="swiper-main"><span class="distance-input">1,000</span><span class="small">m</span></p>
                 </div>
                 <div class="swiper-slide">
                   <p class="swiper-main"><span class="distance-input">2,000</span><span class="small">m</span></p>
-                </div>
-                <div class="swiper-slide">
-                  <p class="swiper-main"><span class="distance-input">3,000</span><span class="small">m</span></p>
-                </div>
-                <div class="swiper-slide">
-                  <p class="swiper-main"><span class="distance-input">4,000</span><span class="small">m</span></p>
                 </div>
               </div>
             </div>
