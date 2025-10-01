@@ -367,6 +367,13 @@ body {
   place-items: center;
 }
 
+#info:not(:empty) {
+  margin-top: 6rem;
+  font-size: 2.6rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
 #back {
   display: inline-block;
   width: 4.6rem;
