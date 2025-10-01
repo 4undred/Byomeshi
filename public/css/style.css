@@ -94,15 +94,30 @@ body {
 
 /* main-contents */
 .main-contents {
-  margin-top: 5.6rem;
-  padding: 2.1rem 2.2rem 2.8rem;
-  background-color: var(--color-beige);
-  border-radius: .4rem;
+  position: relative;
+}
+
+.main-contents .scroll {
+  position: absolute;
+  bottom: 1.6rem;
+  right: .4rem;
+  width: 1.1rem;
+  height: auto;
+  aspect-ratio: 11/38;
 }
 
 .main-contents .inner {
   display: flex;
   flex-direction: column;
+  margin-top: 2.6rem;
+  padding: 2.1rem 2.2rem 2.8rem;
+  aspect-ratio: 320/257;
+  background-color: var(--color-beige);
+  border-radius: .4rem;
+}
+
+.search .main-contents .inner {
+  overflow-y: scroll;
 }
 
 .contents-group {}
@@ -290,6 +305,7 @@ body {
   aspect-ratio: 46/43;
 }
 
+
 /* result */
 #resultArea {
   text-align: center;
@@ -315,33 +331,49 @@ body {
     margin-top: 1.1rem;
     font-size: 1.4rem;
   }
-  a {
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
     margin-top: 2.2rem;
-    width: 9rem;
+    column-gap: 1.6rem;
+  }
+  .btn-sub {
+    width: 10rem;
     height: 4rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    column-gap: .3rem;
     font-size: 2.1rem;
     background-color: var(--color-white);
     border: .2rem solid var(--main-color);
     border-radius: 3.3rem;
     color: var(--main-color);
+    &.link svg {
+      width: 2.1rem;
+      aspect-ratio: 1/1;
+    }
+    &.map svg {
+      width: 1.3rem;
+      aspect-ratio: 13/17;
+    }
   }
 }
 
-.btn-wrapper {
-  margin-top: 1.3rem;
+.result .btn-wrapper {
+  margin-top: 2.3rem;
   display: grid;
   grid-template-columns: auto auto 1fr;
   place-items: center;
 }
+
 #back {
   display: inline-block;
-  width: 5.6rem;
+  width: 4.6rem;
   aspect-ratio: 1/1;
 }
 #another {
+  margin-left: 1.5rem;
   padding: 1.5rem;
   font-size: 2.2rem;
   letter-spacing: .06em;
@@ -349,6 +381,10 @@ body {
   border: .3rem solid var(--color-black);
   background-color: var(--color-beige);
   border-radius: .5rem;
+}
+
+.footer {
+  margin-top: 5rem;
 }
 
 label {

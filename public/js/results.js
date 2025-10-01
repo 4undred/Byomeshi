@@ -51,18 +51,24 @@
         <!-- <p>予算: ${shop.budget?.name || '不明'}</p> -->
         <p class="open">営業時間: ${shop.open || '不明'}</p> 
         <!-- <p>おすすめ: ${shop.catch || ''}</p> -->
-        <!-- <p><a href="${url}" target="_blank">店舗ページ（Hot Pepper）</a></p> -->
-            <!--${lat && lng ? `<p><a href="https://www.google.com/maps/search/?api=1&query=${lat},${lng}" target="_blank">MAP</a></p>` : ''}-->
+        <div class="btn-wrapper">
+         <a class="btn-sub link" href="${url}" target="_blank">
+          <svg>
+            <use href="#link">
+          </svg>LINK
+        </a>
+            ${lat && lng ? `<a class="btn-sub map" href="https://www.google.com/maps/search/?api=1&query=${lat},${lng}" target="_blank"><svg><use href="#map"></svg>MAP</a>` : ''}
+        </div>
       </div>
       `;
 
-      if (lat && lng) {
-        const mapA = document.createElement('a');
-        mapA.href = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
-        mapA.target = '_blank';
-        mapA.textContent = 'MAP';
-        div.appendChild(mapA);
-      }
+      // if (lat && lng) {
+      //   const mapA = document.createElement('a');
+      //   mapA.href = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+      //   mapA.target = '_blank';
+      //   mapA.textContent = 'MAP';
+      //   div.appendChild(mapA);
+      // }
 
       area.appendChild(div);
     }

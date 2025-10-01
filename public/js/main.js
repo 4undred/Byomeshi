@@ -129,7 +129,7 @@ function updateGenre() {
 
 function updateBudget() {
   // スライダーのインデックスからHotPepper予算コード
-  const budgetCodes = ["B001", "B002", "B009", "B010"];
+  const budgetCodes = ["B010", "B011", "B001", "B002", "B003"];
   const activeIndex = mySwiper01.activeIndex || 0;
   $("#budget-hidden").val(budgetCodes[activeIndex]);
   // 表示用
