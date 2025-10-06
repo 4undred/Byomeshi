@@ -73,7 +73,7 @@ body {
 
 /* ロゴ */
 .logo-group {
-  margin: 10.9rem auto 0;
+  margin: 3rem auto 0;
   text-align: center;
 }
 
@@ -111,13 +111,13 @@ body {
   flex-direction: column;
   margin-top: 2.6rem;
   padding: 2.1rem 2.2rem 2.8rem;
-  aspect-ratio: 320/257;
   background-color: var(--color-beige);
   border-radius: .4rem;
 }
 
 .search .main-contents .inner {
   overflow-y: scroll;
+  aspect-ratio: 320/257;
 }
 
 .contents-group {}
